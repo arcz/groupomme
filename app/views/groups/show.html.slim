@@ -1,17 +1,17 @@
-= @group.name
-h3 Members
+h3= @group.name
+h4 Members
 
 - @group.users.each do |user|
   = link_to user.name, user
-  
-h3 Posts
-= simple_form_for [@group, Post.new], html: {class: 'form-group'} do |f|
-  = f.label :body
-  = f.input :body, class: 'form-control'
-  = f.button :submit, class: 'form-control'
+
+h4 Posts
+= simple_form_for [@group, Post.new] do |f|
+  = f.input :body
+  = f.button :submit
   
 - @group.posts.each do |post|
-  .panel.panel-primary
-    .panel-heading = post.user.name
-    .panel-body = post.body
-    .panel-footer = post.created_at
+  .well.well-sm
+    = link_to post.user.name, post.user
+    |  #{post.body}
+    br
+    = post.created_at
