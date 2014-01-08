@@ -11,5 +11,7 @@ h3 Posts
   
 - @group.posts.each do |post|
   .panel.panel-default
-    .panel-heading= post.user.name
-    .panel-body= post.body
+    .panel-heading = post.user.name
+    .panel-body = post.body
+    br
+    .panel-footer = post.created_at
