@@ -10,5 +10,6 @@ class CreateAuthorizations < ActiveRecord::Migration
     
     add_index :authorizations, :user_id
     add_index :authorizations, :group_id
+    add_index :authorizations, [:user_id, :group_id], unique: true
   end
 end

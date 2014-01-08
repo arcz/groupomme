@@ -4,5 +4,7 @@ Groupomme::Application.routes.draw do
   root 'home#index'
   resources :groups do
     resources :posts
+    resources :members
+    resource :join, controller: 'groups/join'
   end
 end

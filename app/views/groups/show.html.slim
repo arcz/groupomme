@@ -3,6 +3,10 @@ h4 Members
 
 - @group.users.each do |user|
   = link_to user.name, user
+  br
+= link_to '+ Join Group', [@group, :join], method: :post
+br
+= link_to '- Leave Group', [@group, :join], method: :delete
 
 h4 Posts
 = simple_form_for [@group, Post.new] do |f|
