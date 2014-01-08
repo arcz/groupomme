@@ -10,6 +10,6 @@ h3 Posts
   = f.button :submit
   
 - @group.posts.each do |post|
-  div
-    = post.user.name
-    = post.body
+  .panel.panel-default
+    .panel-heading= post.user.name
+    .panel-body= post.body
