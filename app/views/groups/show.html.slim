@@ -5,13 +5,13 @@ h3 Members
   = link_to user.name, user
   
 h3 Posts
-= simple_form_for [@group, Post.new] do |f|
-  = f.input :body
-  = f.button :submit
+= simple_form_for [@group, Post.new], html: {class: 'form-group'} do |f|
+  = f.label :body
+  = f.input :body, class: 'form-control'
+  = f.button :submit, class: 'form-control'
   
 - @group.posts.each do |post|
-  .panel.panel-default
+  .panel.panel-primary
     .panel-heading = post.user.name
     .panel-body = post.body
-    br
     .panel-footer = post.created_at
