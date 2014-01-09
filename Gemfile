@@ -34,6 +34,9 @@ gem 'bootstrap-sass-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'draper'
+gem 'paperclip'
+gem 'rmagick'
+gem 'quilt'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

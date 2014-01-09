@@ -13,6 +13,7 @@ h2 Edit #{resource_name.to_s.humanize}
     = f.input :password_confirmation, required: false
     = f.input :first_name
     = f.input :last_name
+    = f.input :avatar
     = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
 
   .form-actions

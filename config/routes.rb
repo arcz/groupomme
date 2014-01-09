@@ -3,8 +3,8 @@ Groupomme::Application.routes.draw do
   resources :users
   root 'home#index'
   resources :groups do
-    resources :posts
-    resources :members
-    resource :join, controller: 'groups/join'
+    resources :posts, only: :create
+    resources :members, only: [:create, :destroy], controller: 'groups/members'
+    resource :join, only: [:create, :destroy], controller: 'groups/join'
   end
 end
