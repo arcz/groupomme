@@ -1,15 +1,15 @@
 h3= @group.name
 .row
-  .col-sm-9
+  .col-md-9
     h4 Posts
     = simple_form_for [@group, Post.new] do |f|
       = f.input :body, label: false, placeholder: 'What would you like to share?'
       = f.button :submit
       
     - @group.posts.each do |post|
-      .post= render 'posts/post', post: post
+      = render 'posts/post', post: post
 
-  .col-sm-3
+  .col-md-3
       .group-member-list
         h4= link_to 'Members', [@group, :members]
         ul.list-group

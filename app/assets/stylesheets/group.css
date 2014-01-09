@@ -11,7 +11,7 @@
   margin: 0;
 }
 
-.group-member-list img, .post img {
+.group-member-list img {
   float: left;
   margin-right: 10px;
 }
