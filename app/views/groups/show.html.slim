@@ -5,7 +5,7 @@ h3= @group.name
     = simple_form_for [@group, Post.new] do |f|
       = f.input :body, label: false, placeholder: 'What would you like to share?'
       = f.button :submit
-  
+      
     - @group.posts.each do |post|
       .post.row
         .col-sm-1= link_to image_tag(post.user.avatar.url(:thumb), class: 'img-rounded'), post.user
