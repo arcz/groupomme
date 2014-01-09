@@ -16,8 +16,11 @@ h3= @group.name
         = post.created_at
 
   .col-md-2
-      h4 Members
+      h4= link_to 'Members', [@group, :members]
       - @group.users.each do |user|
         = link_to image_tag(user.avatar.url(:medium)), user
         br
       = @group.join_button
+      = simple_form_for Authorization.new, as: :user, url: [@group, :members] do |f|
+        = f.input :user_id, as: :string
+        = f.button :submit
