@@ -8,7 +8,6 @@ h3= @group.name
       
     - @group.posts.each do |post|
       .post= render 'posts/post', post: post
-      
 
   .col-sm-3
       .group-member-list
@@ -18,10 +17,12 @@ h3= @group.name
             = link_to user, class: 'list-group-item' do
               = image_tag(user.avatar.url(:thumb), class: 'img-rounded')
               = user.name
-            = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle', method: :delete
+            - if can? :destroy, @group.authorizations.new
+              = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle', method: :delete
         = @group.join_button
-              
-      .member-adder
-        = simple_form_for Authorization.new, as: :user, url: [@group, :members] do |f|
-          = f.input :user_id, as: :string, label: 'Add user to group', placeholder: 'User ID'
-          = f.button :submit
+
+      - if can? :create, @group.authorizations.new
+        .member-adder
+          = simple_form_for Authorization.new, as: :user, url: [@group, :members] do |f|
+            = f.input :user_id, as: :string, label: 'Add user to group', placeholder: 'User ID'
+            = f.button :submit

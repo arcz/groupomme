@@ -1,4 +1,5 @@
 class Groups::MembersController < ApplicationController
+  check_authorization
   before_filter :set_group
   
   def index
@@ -11,6 +12,7 @@ class Groups::MembersController < ApplicationController
   end
 
   def create
+    authorize! :create, @group.authorizations.new
     begin
       @user = User.find(params[:user][:user_id])
       @group.users << @user
@@ -24,6 +26,7 @@ class Groups::MembersController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @group.authorizations.new
     begin
       @user = User.find(params[:id])
       @group.users.delete(@user)

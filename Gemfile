@@ -38,6 +38,7 @@ gem 'paperclip'
 gem 'rmagick'
 gem 'quilt'
 gem 'aasm'
+gem 'cancan'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
