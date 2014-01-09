@@ -19,6 +19,7 @@ h3= @group.name
             = link_to user, class: 'list-group-item' do
               = image_tag(user.avatar.url(:thumb), class: 'img-rounded')
               = user.name
+            = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle', method: :delete
         = @group.join_button
               
       .member-adder

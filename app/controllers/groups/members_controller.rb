@@ -24,9 +24,14 @@ class Groups::MembersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @group.user.delete(@user)
-    redirect_to :back
+    begin
+      @user = User.find(params[:id])
+      @group.users.delete(@user)
+    rescue ActiveRecord::RecordNotFound
+      redirect_to :back, alert: 'User was not found'
+    else
+      redirect_to :back, notice: 'User is no longer member of group'
+    end
   end
 
   private
