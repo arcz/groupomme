@@ -19,10 +19,15 @@ ActiveRecord::Schema.define(version: 20140109000429) do
   create_table "authorizations", force: true do |t|
     t.integer  "user_id"
     t.integer  "group_id"
-    t.string   "state"
+    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "authorizations", ["group_id"], name: "index_authorizations_on_group_id", using: :btree
+  add_index "authorizations", ["role"], name: "index_authorizations_on_role", using: :btree
+  add_index "authorizations", ["user_id", "group_id"], name: "index_authorizations_on_user_id_and_group_id", unique: true, using: :btree
+  add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "name"

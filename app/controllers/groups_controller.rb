@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      @group.authorizations.create(user: current_user)
+      @group.moderators << current_user
       redirect_to @group, notice: 'Your group has been created'
     else
       render :new
