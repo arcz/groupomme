@@ -16,8 +16,21 @@
   margin-right: 10px;
 }
 
-.group-member-list a {
+.group-member-list li {
+  padding: 0;
+  position: relative;
+}
+
+.group-member-list li .remove-memeber-btn {
+  position: absolute;
+  right: -30px;
+  top: 20px;
+}
+
+.group-member-list a.member-list-user {
+  display: block;
   height: 55px;
   line-height: 35px;
+  padding: 10px;
 }
 

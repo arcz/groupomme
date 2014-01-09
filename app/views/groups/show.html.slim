@@ -13,12 +13,13 @@ h3= @group.name
   .col-sm-3
       .group-member-list
         h4= link_to 'Members', [@group, :members]
-        .list-group
+        ul.list-group
           - @group.users.each do |user|
-            = link_to user, class: 'list-group-item' do
-              = image_tag(user.avatar.url(:thumb), class: 'img-rounded')
-              = user.name
-            = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle', method: :delete
+            li.list-group-item
+              = link_to user, class: 'member-list-user' do
+                = image_tag(user.avatar.url(:thumb), class: 'img-rounded')
+                = user.name
+              = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle remove-memeber-btn', method: :delete
         = @group.join_button
               
       .member-adder
