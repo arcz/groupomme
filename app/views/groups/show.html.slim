@@ -6,9 +6,8 @@ h3= @group.name
       = f.input :body, label: false, placeholder: 'What would you like to share?'
       = f.button :submit
       
-    - @group.posts.each do |pst|
-      - @post = pst
-      .post= render 'posts/post'
+    - @group.posts.each do |post|
+      .post= render 'posts/post', post: post
       
 
   .col-sm-3
