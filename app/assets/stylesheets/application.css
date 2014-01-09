@@ -11,6 +11,7 @@
  *= require twitter/bootstrap
  *= require_self
  *= require_tree .
+ *= require bootstrap_overrides
  */
 
 body {
@@ -19,4 +20,9 @@ body {
 
 a#current_user_avatar {
   padding: 7.5;
+}
+
+
+.nav.navbar-right.user-navbar {
+  margin: 0;
 }

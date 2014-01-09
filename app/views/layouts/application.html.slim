@@ -25,7 +25,7 @@ body
         ul.nav.navbar-nav
           li= link_to '+ Create Group', new_group_path
         
-        ul.nav.navbar-nav.navbar-right
+        ul.nav.navbar-nav.navbar-right.user-navbar
           - if user_signed_in?
             li= link_to current_user.name, user_path(current_user)
             li.dropdown
