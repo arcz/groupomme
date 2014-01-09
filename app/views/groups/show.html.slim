@@ -7,7 +7,7 @@ h3= @group.name
         = f.input :body, label: false, placeholder: 'What would you like to share?'
         = f.button :submit
 
-    - @group.posts.each do |post|
+    - @group.posts.latest.each do |post|
       = render 'posts/post', post: post
 
   .col-md-3
@@ -19,7 +19,7 @@ h3= @group.name
               = link_to user, class: 'member-list-user' do
                 = image_tag(user.avatar.url(:thumb), class: 'img-rounded')
                 = user.name
-              - if can? :destroy, @group.authorizations.new
+              - if can? :manage, @group
                 = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle remove-member-btn', method: :delete
         = @group.join_button
 
