@@ -21,10 +21,12 @@
   position: relative;
 }
 
-.group-member-list li .remove-memeber-btn {
+.group-member-list li .remove-member-btn {
+  display: none;
   position: absolute;
-  right: -30px;
+  right: 10px;
   top: 20px;
+  z-index: 100;
 }
 
 .group-member-list a.member-list-user {

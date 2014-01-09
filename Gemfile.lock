@@ -33,6 +33,7 @@ GEM
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
     builder (3.1.4)
+    cancan (1.6.10)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -151,6 +152,7 @@ PLATFORMS
 DEPENDENCIES
   aasm
   bootstrap-sass-rails
+  cancan
   coffee-rails (~> 4.0.0)
   devise
   draper
