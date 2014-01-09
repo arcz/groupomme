@@ -16,3 +16,7 @@
 body {
   padding-top: 65px;
 }
+
+a#current_user_avatar {
+  padding: 7.5;
+}
