@@ -7,5 +7,7 @@ Groupomme::Application.routes.draw do
     resources :members, only: [:index, :create, :destroy], controller: 'groups/members'
     resource :join, only: [:create, :destroy], controller: 'groups/join'
   end
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 end

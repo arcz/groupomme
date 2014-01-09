@@ -4,15 +4,13 @@
     p.post-user-name= link_to post.user.name, post.user
     p.post-content= post.body
     p.post-date= link_to post.created_at, post
-    .comment
-      .comment-avatar-col= link_to image_tag(post.user.avatar.url(:thumb), class: 'img-rounded'), post.user
-      .comment-fluid-col
-        p.comment-user-name= link_to post.user.name, post.user
-        p.comment-content= post.body
-        p.comment-date= link_to post.created_at, post
-    .comment
-      .comment-avatar-col= link_to image_tag(post.user.avatar.url(:thumb), class: 'img-rounded'), post.user
-      .comment-fluid-col
-        p.comment-user-name= link_to post.user.name, post.user
-        p.comment-content= post.body
-        p.comment-date= link_to post.created_at, post
+    - post.comments.each do |comment|
+      .comment
+        .comment-avatar-col= link_to image_tag(comment.user.avatar.url(:thumb), class: 'img-rounded'), comment.user
+        .comment-fluid-col
+          p.comment-user-name= link_to comment.user.name, comment.user
+          p.comment-content= comment.body
+          p.comment-date= comment.created_at
+    = simple_form_for [post, Comment.new] do |f|
+      = f.input :body
+      = f.button :submit
