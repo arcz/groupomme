@@ -1,0 +1,9 @@
+.group_member_list img, .post img {
+  float: left;
+  margin-right: 10px;
+}
+
+.group_member_list a {
+  height: 55px;
+  line-height: 35px;
+}
