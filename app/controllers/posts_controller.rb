@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  def show
+    @post = Post.find(params[:id])
+  end
+  
   def create
     @group = Group.find(params[:group_id])
     @post = @group.posts.new(group_params)
