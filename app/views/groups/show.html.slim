@@ -7,20 +7,19 @@ h3= @group.name
       = f.button :submit
   
     - @group.posts.each do |post|
-      .well.well-sm.post
-        = link_to post.user do
-          = image_tag(post.user.avatar.url(:thumb))
-          = post.user.name
-        |  #{post.body}
-        br
-        = post.created_at
+      .post.row
+        .col-sm-1= link_to image_tag(post.user.avatar.url(:thumb), class: 'img-rounded'), post.user
+        .col-sm-11
+          p.post_user_name= link_to post.user.name, post.user
+          p.post_content= post.body
+          p.post_date= post.created_at
 
   .col-md-3
       h4= link_to 'Members', [@group, :members]
       .list-group.group_member_list
         - @group.users.each do |user|
           = link_to user, class: 'list-group-item' do
-            = image_tag(user.avatar.url(:thumb))
+            = image_tag(user.avatar.url(:thumb), class: 'img-rounded')
             = user.name
               
       = @group.join_button

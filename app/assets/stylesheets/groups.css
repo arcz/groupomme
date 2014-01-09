@@ -1,3 +1,27 @@
+.post {
+  padding: 10px 10px 10px 10px;
+}
+
+.post:not(:last-child) {
+  border-bottom: solid 1px rgb(221, 221, 221);
+}
+
+.post_user_name, .post_date {
+  margin: 0;
+}
+
+.post_user_name {
+  line-height: 14px;
+}
+
+.post_content {
+  margin: 5px 0;
+}
+
+p.post_date {
+  font-size: 12px;
+}
+
 .group_member_list img, .post img {
   float: left;
   margin-right: 10px;
