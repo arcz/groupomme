@@ -1,20 +1,23 @@
 h3= @group.name
-h4 Members
-
-- @group.users.each do |user|
-  = link_to image_tag(user.avatar.url(:medium)), user
-br
-= @group.join_button
-h4 Posts
-= simple_form_for [@group, Post.new] do |f|
-  = f.input :body
-  = f.button :submit
+.row
+  .col-md-10
+    h4 Posts
+    = simple_form_for [@group, Post.new] do |f|
+      = f.input :body
+      = f.button :submit
   
-- @group.posts.each do |post|
-  .well.well-sm
-    = link_to post.user do
-      = image_tag(post.user.avatar.url(:thumb))
-      = post.user.name
-    |  #{post.body}
-    br
-    = post.created_at
+    - @group.posts.each do |post|
+      .well.well-sm
+        = link_to post.user do
+          = image_tag(post.user.avatar.url(:thumb))
+          = post.user.name
+        |  #{post.body}
+        br
+        = post.created_at
+
+  .col-md-2
+      h4 Members
+      - @group.users.each do |user|
+        = link_to image_tag(user.avatar.url(:medium)), user
+        br
+      = @group.join_button
