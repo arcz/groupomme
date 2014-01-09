@@ -16,3 +16,9 @@
         p.comment-user-name= link_to post.user.name, post.user
         p.comment-content= post.body
         p.comment-date= link_to post.created_at, post
+    .comment
+      .comment-avatar-col= link_to image_tag(post.user.avatar.url(:thumb), class: 'img-rounded'), post.user
+      .comment-fluid-col
+        p.comment-user-name= link_to post.user.name, post.user
+        p.comment-content= post.body
+        p.comment-date= link_to post.created_at, post

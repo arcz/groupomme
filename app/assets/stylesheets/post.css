@@ -1,5 +1,9 @@
 .post {
-  padding: 10px 10px 10px 0px;
+  padding: 10px 0px;
+}
+
+.post > p {
+  margin-bottom: 5px;
 }
 
 .post-avatar-col {
@@ -16,7 +20,6 @@
 }
 
 .post-user-name, .post-date {
-  margin: 0;
 }
 
 .post-user-name {
@@ -25,7 +28,6 @@
 
 .post-content {
   text-align: justify;
-  margin: 5px 0;
 }
 
 .post-date a {
