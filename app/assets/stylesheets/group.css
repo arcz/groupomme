@@ -1,0 +1,38 @@
+.group-member-list {
+  margin-bottom: 15px;
+}
+
+.group-member-list h4 a {
+  color: inherit;
+  line-height: 19px;
+}
+
+.group-member-list .list-group {
+  margin: 0;
+}
+
+.group-member-list img {
+  float: left;
+  margin-right: 10px;
+}
+
+.group-member-list li {
+  padding: 0;
+  position: relative;
+}
+
+.group-member-list li .remove-member-btn {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  z-index: 100;
+}
+
+.group-member-list a.member-list-user {
+  display: block;
+  height: 55px;
+  line-height: 35px;
+  padding: 10px;
+}
+

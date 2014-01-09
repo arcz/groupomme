@@ -1,6 +1,6 @@
 h3= @group.name
 .row
-  .col-sm-9
+  .col-md-9
     h4 Posts
     - if can? :post, @group
       = simple_form_for [@group, Post.new] do |f|
@@ -8,18 +8,19 @@ h3= @group.name
         = f.button :submit
 
     - @group.posts.each do |post|
-      .post= render 'posts/post', post: post
+      = render 'posts/post', post: post
 
-  .col-sm-3
+  .col-md-3
       .group-member-list
         h4= link_to 'Members', [@group, :members]
-        .list-group
+        ul.list-group
           - @group.users.each do |user|
-            = link_to user, class: 'list-group-item' do
-              = image_tag(user.avatar.url(:thumb), class: 'img-rounded')
-              = user.name
-            - if can? :destroy, @group.authorizations.new
-              = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle', method: :delete
+            li.list-group-item
+              = link_to user, class: 'member-list-user' do
+                = image_tag(user.avatar.url(:thumb), class: 'img-rounded')
+                = user.name
+              - if can? :destroy, @group.authorizations.new
+                = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle remove-member-btn', method: :delete
         = @group.join_button
 
       - if can? :manage, @group
