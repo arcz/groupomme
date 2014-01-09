@@ -4,9 +4,10 @@ class Groups::JoinController < ApplicationController
     begin
       @group.users << current_user
     rescue ActiveRecord::RecordInvalid
-      redirect_to :back, alert: 'You are already member of this group' and return
+      redirect_to :back, alert: 'You are already member of this group'
+    else
+      redirect_to :back, notice: 'You are now member of this group'
     end
-    redirect_to :back, notice: 'You are now member of this group'
   end
   
   def destroy

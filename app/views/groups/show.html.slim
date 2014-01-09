@@ -16,7 +16,7 @@ h3= @group.name
         = post.created_at
 
   .col-md-3
-      h4 Members
+      h4= link_to 'Members', [@group, :members]
       .list-group.group_member_list
         - @group.users.each do |user|
           = link_to user, class: 'list-group-item' do
@@ -24,3 +24,6 @@ h3= @group.name
             = user.name
               
       = @group.join_button
+      = simple_form_for Authorization.new, as: :user, url: [@group, :members] do |f|
+        = f.input :user_id, as: :string
+        = f.button :submit
