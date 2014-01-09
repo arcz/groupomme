@@ -1,0 +1,6 @@
+.row
+  .col-sm-1= link_to image_tag(@post.user.avatar.url(:thumb), class: 'img-rounded'), @post.user
+  .col-sm-11
+    p.post-user-name= link_to @post.user.name, @post.user
+    p.post-content= @post.body
+    p.post-date= link_to @post.created_at, @post

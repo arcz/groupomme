@@ -1,0 +1,25 @@
+.post {
+  padding: 10px 10px 10px 10px;
+}
+
+.post:not(:last-child) {
+  border-bottom: solid 1px rgb(221, 221, 221);
+}
+
+.post-user-name, .post-date {
+  margin: 0;
+}
+
+.post-user-name {
+  line-height: 14px;
+}
+
+.post-content {
+  text-align: justify;
+  margin: 5px 0;
+}
+
+.post-date a {
+  color: inherit;
+  font-size: 12px;
+}

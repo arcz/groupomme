@@ -1,29 +1,10 @@
-.post {
-  padding: 10px 10px 10px 10px;
-}
-
-.post:not(:last-child) {
-  border-bottom: solid 1px rgb(221, 221, 221);
-}
-
-.post-user-name, .post-date {
-  margin: 0;
-}
-
-.post-user-name {
-  line-height: 14px;
-}
-
-.post-content {
-  margin: 5px 0;
-}
-
-p.post-date {
-  font-size: 12px;
-}
-
 .group-member-list {
   margin-bottom: 15px;
+}
+
+.group-member-list h4 a {
+  color: inherit;
+  line-height: 19px;
 }
 
 .group-member-list .list-group {
