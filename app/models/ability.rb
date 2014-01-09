@@ -5,11 +5,14 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.new_record?
       # user is not logged in
-      # can :manage, :all
     else
       # user is logged in
-      can [:create, :destroy], Authorization do |authorization|
-        authorization.group.moderators.include?(user)
+      can :manage, Group do |group|
+        group.moderators.include?(user)
+      end
+
+      can :post, Group do |group|
+        group.users.include?(user)
       end
     end
   end

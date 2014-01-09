@@ -2,10 +2,11 @@ h3= @group.name
 .row
   .col-sm-9
     h4 Posts
-    = simple_form_for [@group, Post.new] do |f|
-      = f.input :body, label: false, placeholder: 'What would you like to share?'
-      = f.button :submit
-      
+    - if can? :post, @group
+      = simple_form_for [@group, Post.new] do |f|
+        = f.input :body, label: false, placeholder: 'What would you like to share?'
+        = f.button :submit
+
     - @group.posts.each do |post|
       .post= render 'posts/post', post: post
 
@@ -21,7 +22,7 @@ h3= @group.name
               = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle', method: :delete
         = @group.join_button
 
-      - if can? :create, @group.authorizations.new
+      - if can? :manage, @group
         .member-adder
           = simple_form_for Authorization.new, as: :user, url: [@group, :members] do |f|
             = f.input :user_id, as: :string, label: 'Add user to group', placeholder: 'User ID'

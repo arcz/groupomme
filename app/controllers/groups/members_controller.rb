@@ -12,7 +12,7 @@ class Groups::MembersController < ApplicationController
   end
 
   def create
-    authorize! :create, @group.authorizations.new
+    authorize! :manage, @group
     begin
       @user = User.find(params[:user][:user_id])
       @group.users << @user
@@ -26,7 +26,7 @@ class Groups::MembersController < ApplicationController
   end
 
   def destroy
-    authorize! :destroy, @group.authorizations.new
+    authorize! :manage, @group
     begin
       @user = User.find(params[:id])
       @group.users.delete(@user)
