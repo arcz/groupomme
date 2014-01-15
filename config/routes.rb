@@ -1,6 +1,11 @@
 Groupomme::Application.routes.draw do
   devise_for :users
   resources :users
+
+  resource :user do
+    resources :search, only: :index, controller: 'user/search'
+  end
+
   root 'home#index'
   resources :groups do
     resources :posts, only: :create

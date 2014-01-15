@@ -14,13 +14,14 @@ h3= @group.name
       .group-member-list
         h4= link_to 'Members', [@group, :members]
         ul.list-group
-          - @group.users.each do |user|
+          - @group.authorizations.includes(:user).each do |authorization|
             li.list-group-item
-              = link_to user, class: 'member-list-user' do
-                = image_tag(user.avatar.url(:thumb), class: 'img-rounded')
-                = user.name
+              = link_to authorization.user, class: 'member-list-user' do
+                = image_tag(authorization.user.avatar.url(:thumb), class: 'img-rounded')
+                = authorization.user.name
+                = ' MOD' if authorization.moderator?
               - if can? :manage, @group
-                = link_to '', group_member_path(@group, user), class: 'glyphicon glyphicon-remove-circle remove-member-btn', method: :delete
+                = link_to '', group_member_path(@group, authorization.user), class: 'glyphicon glyphicon-remove-circle remove-member-btn', method: :delete
         = @group.join_button
 
       - if can? :manage, @group
