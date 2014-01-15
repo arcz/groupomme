@@ -39,6 +39,7 @@ gem 'rmagick'
 gem 'quilt'
 gem 'aasm'
 gem 'cancan'
+gem 'twitter-typeahead-rails'
 
 group :development do
   gem 'better_errors'

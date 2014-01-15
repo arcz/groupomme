@@ -1,6 +1,19 @@
+ul.comment-list {
+  padding: 0;
+}
+
 .comment {
   background-color: rgb(240, 240, 240);
+  list-style: none;
   padding: 10px 10px 10px 0;
+}
+
+.comment p.comment-user-name, .comment p.comment-date {
+  margin-bottom: 5px;
+}
+
+.comment p.comment-content {
+  margin-bottom: 0;
 }
 
 .comment-avatar-col {
@@ -30,7 +43,15 @@ p.comment-content {
   margin: 5px 0;
 }
 
-.comment-date a {
+.comment .comment-date {
   color: inherit;
   font-size: 10px;
+}
+
+form.new_comment {
+  margin: 10px 0 0 0;
+}
+
+form .comment_body {
+  margin: 0 0 10px 0;
 }

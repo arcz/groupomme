@@ -2,8 +2,12 @@
   padding: 10px 0px;
 }
 
-.post > p {
+.post p.post-user-name, .post p.post-date {
   margin-bottom: 5px;
+}
+
+.post p.post-content {
+  margin-bottom: 0;
 }
 
 .post-avatar-col {
@@ -19,9 +23,6 @@
   border-bottom: solid 1px rgb(221, 221, 221);
 }
 
-.post-user-name, .post-date {
-}
-
 .post-user-name {
   line-height: 14px;
 }
@@ -31,6 +32,6 @@
 }
 
 .post-date a {
-  color: inherit;
+  color: rgb(150, 150, 150);
   font-size: 12px;
 }

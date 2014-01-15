@@ -1,13 +1,21 @@
 h3= @group.name
 .row
-  .col-md-9
+  .col-md-2
+    .content-type-list
+      h4 Select type
+      .list-group
+        a.list-group-item.active href='#' All
+        a.list-group-item href='#' Text shares
+        a.list-group-item href='#' Link shares
+        a.list-group-item href='#' Files uploads
+  .col-md-7
     h4 Posts
     - if can? :post, @group
       = simple_form_for [@group, Post.new] do |f|
         = f.input :body, label: false, placeholder: 'What would you like to share?'
         = f.button :submit
 
-    - @group.posts.latest.each do |post|
+    - @group.posts.each do |post|
       = render 'posts/post', post: post
 
   .col-md-3
@@ -27,5 +35,5 @@ h3= @group.name
       - if can? :manage, @group
         .member-adder
           = simple_form_for Authorization.new, as: :user, url: [@group, :members] do |f|
-            = f.input :user_id, as: :string, label: 'Add user to group', placeholder: 'User ID'
+            = f.input :user_id, as: :string, label: 'ID', placeholder: 'User ID'
             = f.button :submit
