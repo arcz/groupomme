@@ -22,8 +22,9 @@ body
       
       /content for toggling
       .collapse.navbar-collapse#bs-navbar-collapse-1
-        ul.nav.navbar-nav
-          li= link_to '+ Create Group', new_group_path
+        - if can? :create, Group
+          ul.nav.navbar-nav
+            li= link_to '+ Create Group', new_group_path
         
         ul.nav.navbar-nav.navbar-right.user-navbar
           - if user_signed_in?

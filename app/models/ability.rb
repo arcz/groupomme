@@ -16,6 +16,7 @@ class Ability
       can :comment, Post do |post|
         post.group.users.include?(user)
       end
+      can :create, Group
     end
   end
 end
