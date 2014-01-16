@@ -40,6 +40,7 @@ gem 'quilt'
 gem 'aasm'
 gem 'cancan'
 gem 'twitter-typeahead-rails'
+gem 'active_model_serializers'
 
 group :development do
   gem 'better_errors'

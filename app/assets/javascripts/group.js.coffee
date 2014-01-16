@@ -10,9 +10,11 @@ $(document).ready ->
     name: 'users'
     remote:
       url: '/user/search?query=%QUERY'
-    valueKey: 'first_name'
+      filter: (response) ->
+        response.search
+    valueKey: 'name'
     template: (datum) ->
-      '<p>'+datum.first_name+' '+datum.last_name+'</p>'
+      '<p><img src="'+datum.avatar+'">'+datum.name+'</p>'
         
   
   $('.autocomplete-id').on('typeahead:selected', (object,datum) ->
