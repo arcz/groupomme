@@ -12,6 +12,7 @@
             p.comment-user-name= link_to comment.user.name, comment.user
             p.comment-content= comment.body
             p.comment-date= comment.created_at
-    = simple_form_for [post, Comment.new] do |f|
-      = f.input :body, label: false, placeholder: 'Your comment'
-      = f.button :submit
+    - if can? :comment, post
+      = simple_form_for [post, Comment.new] do |f|
+        = f.input :body, label: false, placeholder: 'Your comment'
+        = f.button :submit

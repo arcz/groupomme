@@ -10,9 +10,11 @@ class Ability
       can :manage, Group do |group|
         group.moderators.include?(user)
       end
-
       can :post, Group do |group|
         group.users.include?(user)
+      end
+      can :comment, Post do |post|
+        post.group.users.include?(user)
       end
     end
   end
