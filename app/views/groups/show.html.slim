@@ -34,6 +34,7 @@ h3= @group.name
 
       - if can? :manage, @group
         .member-adder
+          h4 Add user to group
           = simple_form_for Authorization.new, as: :user, url: [@group, :members] do |f|
-            = f.input :user_id, as: :string, label: 'ID', placeholder: 'User ID'
+            = f.input :user_id, as: :autocomplete, label: false, placeholder: 'User ID'
             = f.button :submit
