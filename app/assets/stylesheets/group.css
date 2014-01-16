@@ -29,10 +29,23 @@
   z-index: 100;
 }
 
-.group-member-list a.member-list-user {
+.group-member-list li:hover .remove-member-btn {
+  display: block;
+}
+
+a.group-member {
   display: block;
   height: 55px;
-  line-height: 35px;
   padding: 10px;
 }
 
+.group-member-name {
+  line-height: 35px;
+}
+
+.group-member-list li .group-mod {
+  color: rgb(204, 204, 204);
+  position: absolute;
+  right: 30px;
+  top: 17px;
+}

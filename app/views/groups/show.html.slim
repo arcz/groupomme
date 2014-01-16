@@ -24,10 +24,10 @@ h3= @group.name
         ul.list-group
           - @group.authorizations.includes(:user).each do |authorization|
             li.list-group-item
-              = link_to authorization.user, class: 'member-list-user' do
+              = link_to authorization.user, class: 'group-member' do
                 = image_tag(authorization.user.avatar.url(:thumb), class: 'img-rounded')
-                = authorization.user.name
-                = ' MOD' if authorization.moderator?
+                .group-member-name= authorization.user.name
+              .group-mod= 'MOD' if authorization.moderator?
               - if can? :manage, @group
                 = link_to '', group_member_path(@group, authorization.user), class: 'glyphicon glyphicon-remove-circle remove-member-btn', method: :delete
         = @group.join_button
